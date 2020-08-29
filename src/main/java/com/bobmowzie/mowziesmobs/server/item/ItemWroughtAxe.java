@@ -59,7 +59,9 @@ public class ItemWroughtAxe extends ItemAxe {
                 property.verticalSwing = verticalAttack;
                 property.untilAxeSwing = MowziePlayerProperties.SWING_COOLDOWN;
                 
-                player.getHeldItem(hand).damageItem(1, player);
+                if(!player.isCreative()) {
+                	player.getHeldItem(hand).damageItem(1, player);
+                }
             }
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
         }
