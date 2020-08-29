@@ -66,12 +66,6 @@ public class ItemWroughtAxe extends ItemAxe {
         return super.onItemRightClick(world, player, hand);
     }
 
-    /*@Override
-    public boolean onBlockDestroyed(ItemStack itemStack, World world, IBlockState block, BlockPos pos, EntityLivingBase destroyer) {
-    	itemStack.damageItem(1, destroyer);
-        return true;
-    }*/
-
     @Override
     public float getDestroySpeed(ItemStack itemStack, IBlockState block) {
         return 1.0F;
