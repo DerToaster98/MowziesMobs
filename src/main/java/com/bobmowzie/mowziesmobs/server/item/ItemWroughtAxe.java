@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.bobmowzie.mowziesmobs.server.ModMaterials;
 import com.bobmowzie.mowziesmobs.server.config.ConfigHandler;
 import com.bobmowzie.mowziesmobs.server.creativetab.CreativeTabHandler;
 import com.bobmowzie.mowziesmobs.server.entity.effects.EntityAxeAttack;
@@ -16,7 +17,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 
 public class ItemWroughtAxe extends ItemAxe {
     public ItemWroughtAxe() {
-        super(Item.ToolMaterial.IRON);
+        super(ModMaterials.ToolMaterials.TOOL_WROUGHT_AXE, 10, -3.1F);
         setCreativeTab(CreativeTabHandler.INSTANCE.creativeTab);
         setTranslationKey("wroughtAxe");
         setRegistryName("wrought_axe");
