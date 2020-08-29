@@ -22,11 +22,13 @@ public class ItemGrantSunsBlessing extends Item {
         setCreativeTab(CreativeTabHandler.INSTANCE.creativeTab);
         setTranslationKey("grantSunsBlessing");
         setRegistryName("grant_suns_blessing");
+        setMaxDamage(3);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
         playerIn.addPotionEffect(new PotionEffect(PotionHandler.SUNS_BLESSING, 24000 * 3, 0, false, false));
+        playerIn.getHeldItem(hand).damageItem(1, playerIn);
         return super.onItemRightClick(worldIn, playerIn, hand);
     }
 

@@ -27,19 +27,6 @@ public class ItemBarakoMask extends ItemArmor implements BarakoaMask {
     }
 
     @Override
-    public boolean isDamageable() {
-        return false;
-    }
-
-    @Override
-    public int getDamage(ItemStack stack) {
-        return 0;
-    }
-
-    @Override
-    public void setDamage(ItemStack stack, int damage) {}
-
-    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         ItemHandler.addItemText(this, tooltip);

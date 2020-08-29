@@ -1,9 +1,14 @@
 package com.bobmowzie.mowziesmobs.server.item;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.bobmowzie.mowziesmobs.server.config.ConfigHandler;
 import com.bobmowzie.mowziesmobs.server.creativetab.CreativeTabHandler;
 import com.bobmowzie.mowziesmobs.server.entity.effects.EntityAxeAttack;
 import com.bobmowzie.mowziesmobs.server.property.MowziePlayerProperties;
+
 import net.ilexiconn.llibrary.server.entity.EntityPropertiesHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,11 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemWroughtAxe extends ItemAxe {
     public ItemWroughtAxe() {
@@ -42,6 +43,7 @@ public class ItemWroughtAxe extends ItemAxe {
         if (!player.world.isRemote) {
             player.playSound(SoundEvents.BLOCK_ANVIL_LAND, 0.3F, 0.5F);
         }
+        heldItemStack.damageItem(1, player);
         return true;
     }
 
@@ -56,16 +58,19 @@ public class ItemWroughtAxe extends ItemAxe {
                 if (!world.isRemote) world.spawnEntity(axeAttack);
                 property.verticalSwing = verticalAttack;
                 property.untilAxeSwing = MowziePlayerProperties.SWING_COOLDOWN;
+                
+                player.getHeldItem(hand).damageItem(1, player);
             }
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
         }
         return super.onItemRightClick(world, player, hand);
     }
 
-    @Override
+    /*@Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, IBlockState block, BlockPos pos, EntityLivingBase destroyer) {
+    	itemStack.damageItem(1, destroyer);
         return true;
-    }
+    }*/
 
     @Override
     public float getDestroySpeed(ItemStack itemStack, IBlockState block) {

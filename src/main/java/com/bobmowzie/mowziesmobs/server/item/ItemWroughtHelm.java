@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ItemWroughtHelm extends ItemArmor {
     public ItemWroughtHelm() {
-        super(ArmorMaterial.IRON, 2, EntityEquipmentSlot.HEAD);
+        super(ArmorMaterial.DIAMOND, 2, EntityEquipmentSlot.HEAD);
         setCreativeTab(CreativeTabHandler.INSTANCE.creativeTab);
         setTranslationKey("wroughtHelmet");
         setRegistryName("wrought_helmet");
@@ -28,19 +28,6 @@ public class ItemWroughtHelm extends ItemArmor {
     public boolean getIsRepairable(ItemStack stack, ItemStack material) {
         return false;
     }
-
-    @Override
-    public boolean isDamageable() {
-        return false;
-    }
-
-    @Override
-    public int getDamage(ItemStack stack) {
-        return 0;
-    }
-
-    @Override
-    public void setDamage(ItemStack stack, int damage) {}
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
