@@ -46,7 +46,7 @@ public class ItemWroughtAxe extends ItemAxe {
         if (!entityHit.world.isRemote) {
             entityHit.playSound(SoundEvents.BLOCK_ANVIL_LAND, 0.3F, 0.5F);
         }
-        heldItemStack.damageItem(1, player);
+        heldItemStack.damageItem(1, attacker);
         return true;
     }
 
